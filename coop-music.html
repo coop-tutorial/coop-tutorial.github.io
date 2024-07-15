@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- w3c -->
+    <title>sm64ex-coop music pack generator</title>
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="sm64 online coop, mods sm64ex-coop, sm64coopdx linux, sm64 android, sm64ex-coop apk, sm64ex-coop guías coop-tutorial">
+
+    <!-- opengraph -->
+    <meta property="og:image" content="coop-tutorial.github.io/logo.png"/>
+    <meta property="og:image:alt" content="sm64ex-coop music pack generator"/>
+    <meta property="og:image:width" content="1280"/>
+    <meta property="og:image:height" content="720"/>
+    <meta property="og:site_name" content="sm64ex-coop music pack generator"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="sm64ex-coop music pack generator"/>
+    <meta property="og:url" content="coop-tutorial.github.io/"/>
+    <meta property="og:description" content="Converts yt-dlp playlist URLs or local albums into randomly generated music packs for sm64ex-coop"/>
+  
+    <!-- twitter card -->
+    <meta name="twitter:image:src" content="coop-tutorial.github.io/logo.png"/>
+    <meta name="twitter:site" content="coop-tutorial.github.io/"/>
+    <meta name="twitter:card" content="coop-tutorial.github.io/logo.png"/>
+    <meta name="twitter:title" content="sm64ex-coop music pack generator"/>
+    <meta name="twitter:description" content="Converts yt-dlp playlist URLs or local albums into randomly generated music packs for sm64ex-coop"/>
+
+    <!-- links -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 0 10px #00ff00;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #1e1e1e;
+        }
+
+        h1, h3 {
+            text-align: left;
+            color: #00ff00;
+        }
+
+        code {
+            display: block;
+            background-color: #2d2d2d;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 5px #00ff00;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            position: relative;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #00ff00;
+            color: #121212;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 0 10px #00ff00;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            transform: translateY(-5px);
+        }
+
+        .copy-button {
+            padding: 5px;
+            background-color: #00ff00;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 5px #00ff00;
+            margin-left: 5px;
+        }
+
+        .notification {
+            display: none;
+            background-color: #00ff00;
+            color: #121212;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        .cover-image {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 0 10px #00ff00;
+            border-radius: 15px;
+            transform: perspective(1000px) rotateX(5deg);
+            margin-bottom: 20px;
+        }
+      h1 {
+        font-size: 2em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        position: relative;
+        display: inline-block;
+        color: #ff5757; /* Rojo brillante inspirado en Mario */
+        text-shadow: 2px 2px 0 #00ff00, -2px -2px 0 #00ff00, 2px -2px 0 #00ff00, -2px 2px 0 #00ff00; /* Efecto de sombra verde */
+    }
+
+    h1::before, h1::after {
+        content: attr(data-content);
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #ffffff; /* Color de fondo para simular 3D */
+    }
+
+    h1::before {
+        z-index: -1;
+        transform: rotate(2deg);
+    }
+
+    h1::after {
+        z-index: -2;
+        transform: rotate(-2deg);
+    }
+  
+    /* Estilos para el enlace */
+    p {
+        color: #ffffff; /* Texto blanco sobre fondo negro */
+        font-size: 1.2em;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff5757; /* Rojo brillante */
+        color: #ffffff; /* Texto blanco */
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    a:hover {
+        background-color: #f5a623; /* Amarillo */
+        transform: translateY(-2px);
+    }
+
+    a:active {
+        background-color: #4caf50; /* Verde */
+        transform: translateY(2px);
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1 data-content="Super Mario 64">music pack generator coop</h1>
+        <p>Click aquí para ver la guía en español <a href="music-es.html">Ver guía</a></p>
+        <img src="logo.png" alt="Portada Principal" class="cover-image">
+        <p>Converts yt-dlp playlist URLs or local albums into randomly generated music packs for sm64ex-coop</p>
+
+        <h3>Example of use on Android</h3>
+        <code id="android-code">
+termux-setup-storage<br>
+pkg install git python-pip ffmpeg<br>
+git clone https://www.github.com/robertkirkman/music-pack-generator-coop.git<br>
+cd music-pack-generator-coop<br>
+pip install -r requirements.txt<br>
+mkdir -p /storage/emulated/0/com.owokitty.sm64excoop/user/mods<br>
+./music-pack-generator.py https://www.youtube.com/playlist?list=PLp_G0HWfCo5raQSCb_BxY6oA1OVnNBolc --interactive
+        </code>
+        <button class="copy-button" onclick="copyToClipboard('android-code')">Copy</button>
+
+        <h3>Example of use on GNU/Linux</h3>
+        <code id="linux-code">
+git clone https://www.github.com/robertkirkman/music-pack-generator-coop.git<br>
+cd music-pack-generator-coop<br>
+pip install -r requirements.txt # or find yt-dlp and jinja2 in your distro's package repositories and install them<br>
+./music-pack-generator.py https://www.youtube.com/playlist?list=PLp_G0HWfCo5raQSCb_BxY6oA1OVnNBolc<br>
+mkdir -p ~/.local/share/sm64ex-coop/mods<br>
+cp -r owokitty-generated-music-pack-* ~/.local/share/sm64ex-coop/mods/
+        </code>
+        <button class="copy-button" onclick="copyToClipboard('linux-code')">Copy</button>
+    </div>
+
+    <div id="notification" class="notification">Command copied to clipboard!</div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            var text = document.getElementById(elementId).innerText.trim();
+            navigator.clipboard.writeText(text).then(function() {
+                var notification = document.getElementById('notification');
+                notification.style.display = 'block';
+                setTimeout(function() {
+                    notification.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
